@@ -10,14 +10,14 @@ using System.Diagnostics;
 
 namespace SLAE_Solver
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         int size = 2;
         double[,] matrix;
         double[] b;
         double[] x;
         
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 

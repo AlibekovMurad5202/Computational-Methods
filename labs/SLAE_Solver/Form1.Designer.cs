@@ -1,6 +1,6 @@
 ﻿namespace SLAE_Solver
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridViewMatrix = new System.Windows.Forms.DataGridView();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
             this.labelA = new System.Windows.Forms.Label();
@@ -420,7 +420,7 @@
             this.labelLUTime.TabIndex = 29;
             this.labelLUTime.Text = "0";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -457,8 +457,8 @@
             this.Controls.Add(this.labelb);
             this.Controls.Add(this.labelA);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
-            this.Text = "SLAE_Solver";
+            this.Name = "MainForm";
+            this.Text = "[Alibekov M.R.] Lab_02 (SLAE Solver)";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMatrix)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).EndInit();
