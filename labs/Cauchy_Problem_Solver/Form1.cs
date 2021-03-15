@@ -19,8 +19,8 @@ namespace Cauchy_Problem_Solver
         private void MainForm_Load(object sender, EventArgs e)
         {
             s3ode.Text = $"x\u0307 = x - y - z\ny\u0307 = x + y\nz\u0307 = 3x + z";
-            init_conditions.Text = $"x\u2080 = -2\ny\u2080 =  7\nz\u2080 =  1";
-            exact_sol.Text = $"x(t) = -2 * e^t * (2 * sin(2t) + cos(2t))\n" +
+            init_conditions.Text = $"x\u2080 = \ny\u2080 = \nz\u2080 = ";
+            exact_sol.Text = $"x(t) = e^t * (-4 * sin(2t) - 2 * cos(2t))\n" +
                 $"y(t) = e^t * (5 + 2 * cos(2t) - sin(2t))\n" +
                 $"z(t) = e^t * (-5 + 6 * cos(2t) - 3 * sin(2t))";
         }
@@ -37,13 +37,18 @@ namespace Cauchy_Problem_Solver
             dataGridViewResult.Columns.Clear();
             dataGridViewResult.Visible = true;
 
+            double t_0 = Convert.ToDouble(t_init_cond.Text);
+            double x_0 = Convert.ToDouble(x_init_cond.Text);
+            double y_0 = Convert.ToDouble(y_init_cond.Text);
+            double z_0 = Convert.ToDouble(z_init_cond.Text);
+
             Sample_S3ODE s4 = new Sample_S3ODE();
 
             double a = Convert.ToDouble(A.Text);
             double b = Convert.ToDouble(B.Text);
             int steps = (int)Convert.ToDouble(steps_count.Text);
             
-            var res = RK4Method.Solve(s4, a, b, steps, new double[4] { -2, 7, 1, 0 });
+            var res = RK4Method.Solve(s4, a, b, steps, new double[4] { x_0, y_0, z_0, t_0 });
 
             dataGridViewResult.Columns.Add("№", "№");
             dataGridViewResult.Columns.Add("x", "x");
@@ -143,13 +148,22 @@ namespace Cauchy_Problem_Solver
             grid.Series[2].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             grid.Series[2].Color = Color.Green;
             grid.Series[2].BorderWidth = 2;
+            
+            double t_0 = Convert.ToDouble(t_init_cond.Text);
+            double x_0 = Convert.ToDouble(x_init_cond.Text);
+            double y_0 = Convert.ToDouble(y_init_cond.Text);
+            double z_0 = Convert.ToDouble(z_init_cond.Text);
+
+            double C_1 = Math.Exp(-t_0) / 4 * (3 * y_0 - z_0);
+            double C_2 = Math.Exp(-t_0) / 4 * ((z_0 + y_0) * Math.Cos(2 * t_0) - 2 * x_0 * Math.Sin(2 * t_0));
+            double C_3 = Math.Exp(-t_0) / 4 * ((z_0 + y_0) * Math.Sin(2 * t_0) + 2 * x_0 * Math.Cos(2 * t_0));
 
             for (int i = 0; i < size; i++)
             {
                 double t = T[i];
-                X_exact[i] = Math.Exp(t) * (-4 * Math.Sin(2 * t) - 2 * Math.Cos(2 * t));
-                Y_exact[i] = Math.Exp(t) * (5 + 2 * Math.Cos(2 * t) - Math.Sin(2 * t));
-                Z_exact[i] = Math.Exp(t) * (-5 + 6 * Math.Cos(2 * t) - 3 * Math.Sin(2 * t));
+                X_exact[i] = Math.Exp(t) * (-2 * C_2 * Math.Sin(2 * t) + 2 * C_3 * Math.Cos(2 * t));
+                Y_exact[i] = Math.Exp(t) * (C_1 + C_2 * Math.Cos(2 * t) + C_3 * Math.Sin(2 * t));
+                Z_exact[i] = Math.Exp(t) * (-C_1 + 3 * C_2 * Math.Cos(2 * t) + 3 * C_3 * Math.Sin(2 * t));
             }
 
 
@@ -203,6 +217,69 @@ namespace Cauchy_Problem_Solver
                 grid.Series.RemoveAt(1);
                 buttonDraw_Click(sender, e);
             }
+        }
+
+        private void t_init_cond_TextChanged(object sender, EventArgs e)
+        {
+            rename_exact_solution();
+        }
+
+        private void rename_exact_solution()
+        {
+            if ((t_init_cond.Text != "") && (x_init_cond.Text != "")
+                && (y_init_cond.Text != "") && (z_init_cond.Text != ""))
+            {
+                double t_0 = Convert.ToDouble(t_init_cond.Text);
+                double x_0 = Convert.ToDouble(x_init_cond.Text);
+                double y_0 = Convert.ToDouble(y_init_cond.Text);
+                double z_0 = Convert.ToDouble(z_init_cond.Text);
+
+                double C_1 = Math.Exp(-t_0) / 4 * (3 * y_0 - z_0);
+                double C_2 = Math.Exp(-t_0) / 4 * ((z_0 + y_0) * Math.Cos(2 * t_0) - 2 * x_0 * Math.Sin(2 * t_0));
+                double C_3 = Math.Exp(-t_0) / 4 * ((z_0 + y_0) * Math.Sin(2 * t_0) + 2 * x_0 * Math.Cos(2 * t_0));
+
+                String x_t = $"x(t) = e^t * ({-2 * C_2:0.#} * sin(2t) "
+                    + (Math.Sign(2 * C_3) == 1 ? $"+ {Math.Abs(2 * C_3):0.#} "
+                    : (Math.Sign(2 * C_3) == -1 ? $"- {Math.Abs(2 * C_3):0.#} " : " "))
+                    + $"* cos(2t))\n";
+
+                String y_t = $"y(t) = e^t * ({C_1:0.#} "
+                    + (Math.Sign(C_2) == 1 ? $"+ {Math.Abs(C_2):0.#} * cos(2t) "
+                    : (Math.Sign(C_2) == -1 ? $"- {Math.Abs(C_2):0.#} * cos(2t) " : ""))
+                    + (Math.Sign(C_3) == 1 ? $"+ {Math.Abs(C_3):0.#} * sin(2t))\n"
+                    : (Math.Sign(C_3) == -1 ? $"- {Math.Abs(C_3):0.#} * sin(2t))\n" : "\n"));
+
+
+                String z_t = $"z(t) = e^t * ({-C_1:.#} "
+                    + (Math.Sign(3 * C_2) == 1 ? $"+ {Math.Abs(3 * C_2):0.#} * cos(2t) "
+                    : (Math.Sign(3 * C_2) == -1 ? $"- {Math.Abs(3 * C_2):0.#} * cos(2t) " : ""))
+                    + (Math.Sign(3 * C_3) == 1 ? $"+ {Math.Abs(3 * C_3):0.#} * sin(2t))\n"
+                    : (Math.Sign(3 * C_3) == -1 ? $"- {Math.Abs(3 * C_3):0.#} * sin(2t))\n" : "\n"));
+
+                exact_sol.Text = x_t + y_t + z_t;
+            }
+        }
+
+        private void x_init_cond_TextChanged(object sender, EventArgs e)
+        {
+            rename_exact_solution();
+        }
+
+        private void y_init_cond_TextChanged(object sender, EventArgs e)
+        {
+            rename_exact_solution();
+        }
+
+        private void z_init_cond_TextChanged(object sender, EventArgs e)
+        {
+            rename_exact_solution();
+        }
+
+        private void t_init_cond_Leave(object sender, EventArgs e)
+        {
+            if (Convert.ToDouble(t_init_cond.Text) > Convert.ToDouble(A.Text))
+                buttonSolve.Enabled = false;
+            else buttonSolve.Enabled = true;
         }
     }
 }

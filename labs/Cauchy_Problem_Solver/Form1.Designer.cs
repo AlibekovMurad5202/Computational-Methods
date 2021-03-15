@@ -47,7 +47,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.interval_name = new System.Windows.Forms.Label();
             this.B = new System.Windows.Forms.TextBox();
-            this.A = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,6 +56,11 @@
             this.x_t = new System.Windows.Forms.RadioButton();
             this.y_t = new System.Windows.Forms.RadioButton();
             this.z_t = new System.Windows.Forms.RadioButton();
+            this.t_init_cond = new System.Windows.Forms.TextBox();
+            this.x_init_cond = new System.Windows.Forms.TextBox();
+            this.A = new System.Windows.Forms.TextBox();
+            this.y_init_cond = new System.Windows.Forms.TextBox();
+            this.z_init_cond = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -95,7 +99,7 @@
             this.s3ode.AutoSize = true;
             this.s3ode.BackColor = System.Drawing.Color.Transparent;
             this.s3ode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.s3ode.Location = new System.Drawing.Point(649, 77);
+            this.s3ode.Location = new System.Drawing.Point(626, 78);
             this.s3ode.Name = "s3ode";
             this.s3ode.Size = new System.Drawing.Size(145, 87);
             this.s3ode.TabIndex = 3;
@@ -107,7 +111,7 @@
             this.buttonDraw.Font = new System.Drawing.Font("Segoe UI Symbol", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDraw.Location = new System.Drawing.Point(883, 541);
             this.buttonDraw.Name = "buttonDraw";
-            this.buttonDraw.Size = new System.Drawing.Size(170, 101);
+            this.buttonDraw.Size = new System.Drawing.Size(201, 101);
             this.buttonDraw.TabIndex = 6;
             this.buttonDraw.Text = "Построить фазовый портрет";
             this.buttonDraw.UseVisualStyleBackColor = true;
@@ -116,7 +120,7 @@
             // s3ode_name
             // 
             this.s3ode_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.s3ode_name.Location = new System.Drawing.Point(612, 11);
+            this.s3ode_name.Location = new System.Drawing.Point(589, 12);
             this.s3ode_name.Name = "s3ode_name";
             this.s3ode_name.Size = new System.Drawing.Size(196, 66);
             this.s3ode_name.TabIndex = 7;
@@ -125,7 +129,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 56F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(595, 49);
+            this.label1.Location = new System.Drawing.Point(572, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 131);
             this.label1.TabIndex = 8;
@@ -134,27 +138,27 @@
             // init_conditions_name
             // 
             this.init_conditions_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.init_conditions_name.Location = new System.Drawing.Point(814, 11);
+            this.init_conditions_name.Location = new System.Drawing.Point(791, 12);
             this.init_conditions_name.Name = "init_conditions_name";
-            this.init_conditions_name.Size = new System.Drawing.Size(236, 66);
+            this.init_conditions_name.Size = new System.Drawing.Size(262, 66);
             this.init_conditions_name.TabIndex = 9;
-            this.init_conditions_name.Text = "Начальные условия (при t=0):";
+            this.init_conditions_name.Text = "Начальные условия (при t=         ):";
             // 
             // init_conditions
             // 
             this.init_conditions.AutoSize = true;
             this.init_conditions.BackColor = System.Drawing.Color.Transparent;
             this.init_conditions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.init_conditions.Location = new System.Drawing.Point(849, 77);
+            this.init_conditions.Location = new System.Drawing.Point(826, 78);
             this.init_conditions.Name = "init_conditions";
-            this.init_conditions.Size = new System.Drawing.Size(153, 87);
+            this.init_conditions.Size = new System.Drawing.Size(55, 87);
             this.init_conditions.TabIndex = 10;
-            this.init_conditions.Text = "x\\u2080 = -2\r\ny\\u2080 =  7\r\nz\\u2080 =  1";
+            this.init_conditions.Text = "x = \r\ny = \r\nz = ";
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 56F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(803, 49);
+            this.label2.Location = new System.Drawing.Point(780, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 131);
             this.label2.TabIndex = 11;
@@ -163,7 +167,7 @@
             // exact_sol_name
             // 
             this.exact_sol_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exact_sol_name.Location = new System.Drawing.Point(611, 180);
+            this.exact_sol_name.Location = new System.Drawing.Point(589, 180);
             this.exact_sol_name.Name = "exact_sol_name";
             this.exact_sol_name.Size = new System.Drawing.Size(400, 36);
             this.exact_sol_name.TabIndex = 12;
@@ -210,18 +214,6 @@
             this.B.Text = "2";
             this.B.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.B.Leave += new System.EventHandler(this.B_Leave);
-            // 
-            // A
-            // 
-            this.A.BackColor = System.Drawing.Color.GhostWhite;
-            this.A.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.A.Location = new System.Drawing.Point(792, 329);
-            this.A.Name = "A";
-            this.A.Size = new System.Drawing.Size(48, 30);
-            this.A.TabIndex = 20;
-            this.A.Text = "0";
-            this.A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.A.Leave += new System.EventHandler(this.A_Leave);
             // 
             // label3
             // 
@@ -345,12 +337,77 @@
             this.z_t.Visible = false;
             this.z_t.CheckedChanged += new System.EventHandler(this.z_t_CheckedChanged);
             // 
+            // t_init_cond
+            // 
+            this.t_init_cond.BackColor = System.Drawing.Color.GhostWhite;
+            this.t_init_cond.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.t_init_cond.Location = new System.Drawing.Point(883, 42);
+            this.t_init_cond.Name = "t_init_cond";
+            this.t_init_cond.Size = new System.Drawing.Size(48, 30);
+            this.t_init_cond.TabIndex = 27;
+            this.t_init_cond.Text = "0";
+            this.t_init_cond.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.t_init_cond.TextChanged += new System.EventHandler(this.t_init_cond_TextChanged);
+            this.t_init_cond.Leave += new System.EventHandler(this.t_init_cond_Leave);
+            // 
+            // x_init_cond
+            // 
+            this.x_init_cond.BackColor = System.Drawing.Color.GhostWhite;
+            this.x_init_cond.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.x_init_cond.Location = new System.Drawing.Point(883, 78);
+            this.x_init_cond.Name = "x_init_cond";
+            this.x_init_cond.Size = new System.Drawing.Size(48, 28);
+            this.x_init_cond.TabIndex = 26;
+            this.x_init_cond.Text = "-2";
+            this.x_init_cond.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.x_init_cond.TextChanged += new System.EventHandler(this.x_init_cond_TextChanged);
+            // 
+            // A
+            // 
+            this.A.BackColor = System.Drawing.Color.GhostWhite;
+            this.A.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.A.Location = new System.Drawing.Point(792, 329);
+            this.A.Name = "A";
+            this.A.Size = new System.Drawing.Size(48, 30);
+            this.A.TabIndex = 20;
+            this.A.Text = "0";
+            this.A.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.A.Leave += new System.EventHandler(this.A_Leave);
+            // 
+            // y_init_cond
+            // 
+            this.y_init_cond.BackColor = System.Drawing.Color.GhostWhite;
+            this.y_init_cond.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.y_init_cond.Location = new System.Drawing.Point(883, 110);
+            this.y_init_cond.Name = "y_init_cond";
+            this.y_init_cond.Size = new System.Drawing.Size(48, 28);
+            this.y_init_cond.TabIndex = 29;
+            this.y_init_cond.Text = "7";
+            this.y_init_cond.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.y_init_cond.TextChanged += new System.EventHandler(this.y_init_cond_TextChanged);
+            // 
+            // z_init_cond
+            // 
+            this.z_init_cond.BackColor = System.Drawing.Color.GhostWhite;
+            this.z_init_cond.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.z_init_cond.Location = new System.Drawing.Point(883, 141);
+            this.z_init_cond.Name = "z_init_cond";
+            this.z_init_cond.Size = new System.Drawing.Size(48, 28);
+            this.z_init_cond.TabIndex = 30;
+            this.z_init_cond.Text = "1";
+            this.z_init_cond.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.z_init_cond.TextChanged += new System.EventHandler(this.z_init_cond_TextChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.ClientSize = new System.Drawing.Size(1122, 673);
+            this.Controls.Add(this.z_init_cond);
+            this.Controls.Add(this.y_init_cond);
+            this.Controls.Add(this.x_init_cond);
+            this.Controls.Add(this.t_init_cond);
             this.Controls.Add(this.z_t);
             this.Controls.Add(this.y_t);
             this.Controls.Add(this.x_t);
@@ -364,17 +421,17 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.exact_sol_name);
             this.Controls.Add(this.init_conditions);
-            this.Controls.Add(this.init_conditions_name);
             this.Controls.Add(this.s3ode_name);
             this.Controls.Add(this.buttonDraw);
             this.Controls.Add(this.s3ode);
             this.Controls.Add(this.buttonSolve);
             this.Controls.Add(this.dataGridViewResult);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.exact_sol);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.interval_name);
+            this.Controls.Add(this.init_conditions_name);
+            this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "[Alibekov M.R.] Lab_03 (RK4Solver)";
@@ -402,7 +459,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label interval_name;
         private System.Windows.Forms.TextBox B;
-        private System.Windows.Forms.TextBox A;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -412,6 +468,11 @@
         private System.Windows.Forms.RadioButton x_t;
         private System.Windows.Forms.RadioButton y_t;
         private System.Windows.Forms.RadioButton z_t;
+        private System.Windows.Forms.TextBox t_init_cond;
+        private System.Windows.Forms.TextBox x_init_cond;
+        private System.Windows.Forms.TextBox A;
+        private System.Windows.Forms.TextBox y_init_cond;
+        private System.Windows.Forms.TextBox z_init_cond;
     }
 }
 
