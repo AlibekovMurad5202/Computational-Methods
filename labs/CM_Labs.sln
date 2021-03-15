@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic_Spline_Interpolation"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLAE_Solver", "SLAE_Solver\SLAE_Solver.csproj", "{91F84422-0F87-485D-A449-7E62E19550AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cauchy_Problem_Solver", "Cauchy_Problem_Solver\Cauchy_Problem_Solver.csproj", "{B1A16DDB-DDCD-48E0-A228-6A6596D9E62E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{91F84422-0F87-485D-A449-7E62E19550AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91F84422-0F87-485D-A449-7E62E19550AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F84422-0F87-485D-A449-7E62E19550AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A16DDB-DDCD-48E0-A228-6A6596D9E62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A16DDB-DDCD-48E0-A228-6A6596D9E62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A16DDB-DDCD-48E0-A228-6A6596D9E62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A16DDB-DDCD-48E0-A228-6A6596D9E62E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

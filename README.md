@@ -6,6 +6,7 @@ ___Применяемый стек технологий___: C#, Windows Forms
 ## Темы лабораторных работ:
 1. ___lab_01___ - Cubic Spline Interpolation.
 2. ___lab_02___ - SLAE Solver.
+3. ___lab_03___ - Cauchy Problem Solver.
 
 ## Структура каталога
 * [__labs__][labs] - директория с кодом лабораторных работ
