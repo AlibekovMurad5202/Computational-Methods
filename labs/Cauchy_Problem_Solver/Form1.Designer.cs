@@ -341,7 +341,7 @@
             // 
             this.t_init_cond.BackColor = System.Drawing.Color.GhostWhite;
             this.t_init_cond.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.t_init_cond.Location = new System.Drawing.Point(883, 42);
+            this.t_init_cond.Location = new System.Drawing.Point(887, 41);
             this.t_init_cond.Name = "t_init_cond";
             this.t_init_cond.Size = new System.Drawing.Size(48, 30);
             this.t_init_cond.TabIndex = 27;
@@ -354,7 +354,7 @@
             // 
             this.x_init_cond.BackColor = System.Drawing.Color.GhostWhite;
             this.x_init_cond.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.x_init_cond.Location = new System.Drawing.Point(883, 78);
+            this.x_init_cond.Location = new System.Drawing.Point(887, 77);
             this.x_init_cond.Name = "x_init_cond";
             this.x_init_cond.Size = new System.Drawing.Size(48, 28);
             this.x_init_cond.TabIndex = 26;
@@ -378,7 +378,7 @@
             // 
             this.y_init_cond.BackColor = System.Drawing.Color.GhostWhite;
             this.y_init_cond.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.y_init_cond.Location = new System.Drawing.Point(883, 110);
+            this.y_init_cond.Location = new System.Drawing.Point(887, 109);
             this.y_init_cond.Name = "y_init_cond";
             this.y_init_cond.Size = new System.Drawing.Size(48, 28);
             this.y_init_cond.TabIndex = 29;
@@ -390,7 +390,7 @@
             // 
             this.z_init_cond.BackColor = System.Drawing.Color.GhostWhite;
             this.z_init_cond.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.z_init_cond.Location = new System.Drawing.Point(883, 141);
+            this.z_init_cond.Location = new System.Drawing.Point(887, 140);
             this.z_init_cond.Name = "z_init_cond";
             this.z_init_cond.Size = new System.Drawing.Size(48, 28);
             this.z_init_cond.TabIndex = 30;

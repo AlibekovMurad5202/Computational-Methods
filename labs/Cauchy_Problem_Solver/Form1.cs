@@ -18,6 +18,7 @@ namespace Cauchy_Problem_Solver
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            init_conditions_name.Text = $"Начальные условия (при t\u2080=         ):";
             s3ode.Text = $"x\u0307 = x - y - z\ny\u0307 = x + y\nz\u0307 = 3x + z";
             init_conditions.Text = $"x\u2080 = \ny\u2080 = \nz\u2080 = ";
             exact_sol.Text = $"x(t) = e^t * (-4 * sin(2t) - 2 * cos(2t))\n" +
