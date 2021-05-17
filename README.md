@@ -7,6 +7,7 @@ ___Применяемый стек технологий___: C#, Windows Forms
 1. ___lab_01___ - Cubic Spline Interpolation.
 2. ___lab_02___ - SLAE Solver.
 3. ___lab_03___ - Cauchy Problem Solver.
+4. ___lab_04___ - Controlled Rod Heating Process.
 
 ## Структура каталога
 * [__labs__][labs] - директория с кодом лабораторных работ
